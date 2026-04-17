@@ -1,4 +1,4 @@
-# DESIGN.md — {{サービス名}}
+# DESIGN.md — Kcode
 
 > このファイルはAIエージェントが日本語UIを生成するためのデザイン仕様書です。
 > ヒアリングデータを元にAIが自動生成します。手動編集も可能です。
@@ -7,9 +7,9 @@
 
 ## 1. Visual Theme & Atmosphere
 
-- **デザイン方針**: {{AIが業種から判断}}
-- **密度**: {{ゆったり / 標準 / 情報密度高め}}
-- **キーワード**: {{3〜5つの形容詞}}
+- **デザイン方針**: ダークモダンで先進的なテック感のあるデザイン。青系（インディゴ、シアン）のグラデーションやグラスモーフィズムを取り入れたモダンな構成。
+- **密度**: ゆったり
+- **キーワード**: 先進的、プロフェッショナル、モダン、洗練された、テクノロジー
 
 ---
 
@@ -17,8 +17,8 @@
 
 ### Primary（ブランドカラー）
 
-- **Primary** (`#______`): メインのブランドカラー。CTAボタン、リンク等に使用
-- **Primary Dark** (`#______`): ホバー・プレス時
+- **Primary** (`#06B6D4`): メインのブランドカラー。CTAボタン、リンク等に使用（シアン）
+- **Primary Dark** (`#0891B2`): ホバー・プレス時
 
 ### Semantic
 
@@ -28,11 +28,11 @@
 
 ### Neutral
 
-- **Text Primary** (`#171717`): 本文テキスト
-- **Text Secondary** (`#737373`): 補足テキスト
-- **Border** (`#E5E5E5`): 区切り線、入力欄の枠
-- **Background** (`#FAFAFA`): ページ背景
-- **Surface** (`#FFFFFF`): カード、モーダル等の面
+- **Text Primary** (`#F8FAFC`): 本文テキスト（白に近いグレー）
+- **Text Secondary** (`#94A3B8`): 補足テキスト（明るいグレー）
+- **Border** (`#334155`): 区切り線、入力欄の枠
+- **Background** (`#0F172A`): ページ背景（ダークブルーグレー）
+- **Surface** (`#1E293B`): カード、モーダル等の面
 
 ---
 
@@ -94,11 +94,12 @@ font-feature-settings: "palt" 1, "kern" 1;
 ### Buttons
 
 **Primary**
-- Background: Primary カラー
+- Background: Primary カラー (`#06B6D4`)
 - Text: #FFFFFF
 - Padding: 12px 24px
 - Border Radius: 10px
 - Font Size: 16px / Weight: 600
+- Shadow: 0 4px 14px 0 rgba(6, 182, 212, 0.39)
 
 **Secondary**
 - Background: transparent
@@ -109,19 +110,22 @@ font-feature-settings: "palt" 1, "kern" 1;
 
 ### Inputs
 
-- Border: 1px solid #E5E5E5
+- Background: rgba(30, 41, 59, 0.5)
+- Border: 1px solid #334155
 - Border (focus): 1px solid Primary
 - Border Radius: 10px
 - Padding: 12px 16px
 - Height: 44px
+- Color: #F8FAFC
 
-### Cards
+### Cards (Glassmorphism)
 
-- Background: #FFFFFF
-- Border: 1px solid #E5E5E5
+- Background: rgba(30, 41, 59, 0.7)
+- Backdrop Filter: blur(12px)
+- Border: 1px solid rgba(255, 255, 255, 0.1)
 - Border Radius: 12px
 - Padding: 24px
-- Shadow: 0 1px 2px rgba(0,0,0,0.05)
+- Shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)
 
 ---
 
@@ -150,9 +154,9 @@ font-feature-settings: "palt" 1, "kern" 1;
 | Level | Shadow | 用途 |
 |-------|--------|------|
 | 0 | none | フラット |
-| 1 | 0 1px 2px rgba(0,0,0,0.05) | カード |
-| 2 | 0 4px 8px rgba(0,0,0,0.08) | ドロップダウン |
-| 3 | 0 8px 24px rgba(0,0,0,0.12) | モーダル |
+| 1 | 0 4px 6px -1px rgba(0,0,0,0.1) | カード |
+| 2 | 0 10px 15px -3px rgba(0,0,0,0.1) | ドロップダウン |
+| 3 | 0 20px 25px -5px rgba(0,0,0,0.1) | モーダル |
 
 ---
 
@@ -165,10 +169,11 @@ font-feature-settings: "palt" 1, "kern" 1;
 - コントラスト比 WCAG AA 以上を確保
 - 余白は Spacing Scale に従う
 - セクションごとにレイアウトに変化をつける
+- グラスモーフィズムを適度に取り入れ、先進的な印象を与える
 
 ### Don't
 
-- グラデーション背景の多用
+- グラデーション背景の多用（アクセントとして使用する）
 - 装飾的なSVGパターン
 - 全セクション同じレイアウトの繰り返し
 - 不自然に大きなpadding
