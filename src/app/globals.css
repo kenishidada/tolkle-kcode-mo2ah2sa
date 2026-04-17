@@ -1,56 +1,53 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/*
- * Design System: DESIGN.md 準拠
- * タイポ: System UI + Inter
- * カラー: ニュートラル + アクセント (カスタマイズ前提)
- * 半径: 12/10/8px
- * 余白: 8の倍数
- */
+@layer base {
+  :root {
+    --background: 222 47% 11%; /* #0F172A */
+    --foreground: 210 40% 98%; /* #F8FAFC */
 
-@theme inline {
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --card: 215 28% 17%; /* #1E293B */
+    --card-foreground: 210 40% 98%;
 
-  /* --- カラー (ダークモダン・テック感) --- */
-  --color-background: oklch(0.2 0.03 260); /* Slate 900 */
-  --color-foreground: oklch(0.98 0.01 260); /* Slate 50 */
-  --color-muted: oklch(0.27 0.03 260); /* Slate 800 */
-  --color-muted-foreground: oklch(0.7 0.02 260); /* Slate 400 */
-  --color-border: oklch(0.35 0.03 260); /* Slate 700 */
-  --color-ring: oklch(0.71 0.13 230); /* Cyan 500 */
+    --popover: 215 28% 17%;
+    --popover-foreground: 210 40% 98%;
 
-  /* アクセントカラー (シアン系) */
-  --color-primary: oklch(0.71 0.13 230); /* Cyan 500 */
-  --color-primary-foreground: oklch(0.98 0.01 260); /* Slate 50 */
-  --color-secondary: oklch(0.27 0.03 260); /* Slate 800 */
-  --color-secondary-foreground: oklch(0.98 0.01 260); /* Slate 50 */
+    --primary: 189 94% 43%; /* #06B6D4 */
+    --primary-foreground: 0 0% 100%;
 
-  --color-accent: oklch(0.27 0.03 260); /* Slate 800 */
-  --color-accent-foreground: oklch(0.98 0.01 260); /* Slate 50 */
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 40% 98%;
 
-  --color-destructive: oklch(0.55 0.2 25);
-  --color-destructive-foreground: oklch(0.99 0 0);
+    --muted: 215 28% 17%;
+    --muted-foreground: 215 20% 65%; /* #94A3B8 */
 
-  --color-card: oklch(0.27 0.03 260); /* Slate 800 */
-  --color-card-foreground: oklch(0.98 0.01 260); /* Slate 50 */
-  --color-popover: oklch(0.27 0.03 260); /* Slate 800 */
-  --color-popover-foreground: oklch(0.98 0.01 260); /* Slate 50 */
+    --accent: 189 94% 43%;
+    --accent-foreground: 0 0% 100%;
 
-  --color-input: oklch(0.35 0.03 260); /* Slate 700 */
+    --destructive: 0 84% 60%; /* #EF4444 */
+    --destructive-foreground: 210 40% 98%;
 
-  /* --- 半径 --- */
-  --radius-sm: 8px;
-  --radius-md: 10px;
-  --radius-lg: 12px;
+    --border: 215 25% 27%; /* #334155 */
+    --input: 215 25% 27%;
+    --ring: 189 94% 43%;
+
+    --radius: 0.5rem;
+  }
 }
 
 @layer base {
   * {
     @apply border-border;
   }
-
   body {
-    @apply bg-background text-foreground antialiased;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    @apply bg-background text-foreground;
+    font-family: "Inter", "Noto Sans JP", "Yu Gothic", system-ui, sans-serif;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    line-break: strict;
+  }
+  h1, h2, h3, h4, h5, h6, .nav-link {
+    font-feature-settings: "palt" 1, "kern" 1;
   }
 }
